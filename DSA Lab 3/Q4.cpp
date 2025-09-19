@@ -69,9 +69,9 @@ public:
         
     	if(current->next != nullptr){
     		n->next->prev = n;
-	}else{
-		tail=n;
-	}
+		}else{
+			tail=n;
+		}
         
         
         current->next = n;
