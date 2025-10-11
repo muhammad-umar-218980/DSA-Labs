@@ -2,6 +2,12 @@
 #include <queue>
 using namespace std;
 
+/*
+    Name : Muhammad Umar
+    Class : CSIT Section A Batch 24
+    Roll no. : CT - 24028
+*/
+
 class DataStream {
     int value;
     int k;
