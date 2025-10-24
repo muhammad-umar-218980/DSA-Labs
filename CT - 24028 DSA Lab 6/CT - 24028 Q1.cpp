@@ -1,6 +1,12 @@
 #include <iostream>
 using namespace std;
 
+/*
+    Name : Muhammad Umar
+    Class : CSIT Section A Batch 24
+    Roll no. : CT - 24028
+*/
+
 void bubbleSort(int* arr , int n){
 	
 	for(int i = 0 ; i < n-1 ; i++){
