@@ -26,9 +26,6 @@ public:
         swaps = 0;
     }
 
-    int getComparisons(){ return comparisons; }
-    int getSwaps(){ return swaps; }
-
     void generateRandomArray(int* arr, int n) {
         for (int i = 0; i < n; i++)
             arr[i] = rand() % 100;
