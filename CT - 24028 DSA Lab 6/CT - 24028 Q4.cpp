@@ -46,7 +46,6 @@ int main() {
     cin >> size;
 
     int* arr = new int[size];
-    cout << "Enter array elements: \n";
     for(int i = 0; i < size; i++) {
     	cout << "\nEnter element " << i+1 << " : ";
         cin >> arr[i];
@@ -57,13 +56,13 @@ int main() {
 
     pancakeSort(arr, size, flips, flipCount);
 
-    cout << "Flip sequence: ";
+    cout << "\nFlip sequence: ";
     for(int i = 0; i < flipCount; i++) {
         cout << flips[i] << " ";
     }
     cout << endl;
 
-    cout << "Sorted array: ";
+    cout << "\nSorted array: ";
     for(int i = 0; i < size; i++) {
         cout << arr[i] << " ";
     }
