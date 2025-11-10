@@ -12,6 +12,7 @@ public:
     int val;
     TreeNode* left;
     TreeNode* right;
+
     TreeNode(int v) {
         val = v;
         left = nullptr;
@@ -19,36 +20,52 @@ public:
     }
 };
 
-TreeNode* insert(TreeNode* root, int key) {
-	
-    if (root == nullptr) return new TreeNode(key);
-    
-    if (key < root->val)
-        root->left = insert(root->left, key);
-    else if (key > root->val)
-        root->right = insert(root->right, key);
-    return root;
-}
+class BinarySearchTree {
+public:
+    TreeNode* root;
 
-int sumOfNodes(TreeNode* root) {
-    if (root == nullptr) return 0;
-    int leftSum = sumOfNodes(root->left);
-    int rightSum = sumOfNodes(root->right);
-    return leftSum + rightSum + root->val;
-}
+    BinarySearchTree() {
+        root = nullptr;
+    }
+
+    void insert(int key) {
+        root = insertRec(root, key);
+    }
+
+    int sumOfNodes() {
+        return sumOfNodesRec(root);
+    }
+
+private:
+    TreeNode* insertRec(TreeNode* node, int key) {
+        if (node == nullptr)
+            return new TreeNode(key);
+        if (key < node->val)
+            node->left = insertRec(node->left, key);
+        else if (key > node->val)
+            node->right = insertRec(node->right, key);
+        return node;
+    }
+
+    int sumOfNodesRec(TreeNode* node) {
+        if (node == nullptr) return 0;
+        int leftSum = sumOfNodesRec(node->left);
+        int rightSum = sumOfNodesRec(node->right);
+        return leftSum + rightSum + node->val;
+    }
+};
 
 int main() {
-    TreeNode* root = nullptr;
-    root = insert(root, 20);
-    root = insert(root, 10);
-    root = insert(root, 30);
-    root = insert(root, 5);
-    root = insert(root, 15);
-    root = insert(root, 25);
-    root = insert(root, 35);
+    BinarySearchTree bst;
+    bst.insert(20);
+    bst.insert(10);
+    bst.insert(30);
+    bst.insert(5);
+    bst.insert(15);
+    bst.insert(25);
+    bst.insert(35);
 
-    int totalSum = sumOfNodes(root);
-    cout << "Sum of all nodes: " << totalSum << endl;
+    cout << "Sum of all nodes: " << bst.sumOfNodes() << endl;
 
     return 0;
 }
